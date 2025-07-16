@@ -7,107 +7,101 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
+    * 
+    {
+      margin: 0;  padding: 0;
       box-sizing: border-box;
     }
-
-    html, body {
+    html, body 
+    {
       font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #f0f0f0;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);  color: #f0f0f0;
       min-height: 100vh;
     }
-
-    header {
+    header 
+    {
       position: fixed;
       top: 0;
-      width: 100%;
-      background: #000;
+      width: 100%;  background: #000;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: space-between;  align-items: center;
       z-index: 1000;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
     }
-
-    header h1 {
+    header h1
+    {
       font-size: 1.6rem;
       color: #00ffc8;
     }
-
-    nav a {
+    nav a 
+    {
       color: #00bcd4;
-      margin-left: 1rem;
-      text-decoration: none;
+      margin-left: 1rem; text-decoration: none;
       font-weight: bold;
       transition: color 0.3s ease;
     }
-
-    nav a:hover {
+    nav a:hover 
+    {
       color: #ffffff;
     }
-
-    main {
+    main 
+    {
       max-width: 850px;
       margin: auto;
       padding: 7rem 1rem 2rem; /* Reduced top padding */
-      display: flex;
-      flex-direction: column;
+      display: flex;  flex-direction: column;
       gap: 2rem;
     }
-
-    .report-section {
+    .report-section
+     {
       background-color: rgba(0, 0, 0, 0.85);
-      border-radius: 12px;
-      padding: 2rem;
+      border-radius: 12px;  padding: 2rem;
       box-shadow: 0 0 20px rgba(0,255,255,0.1);
       transition: transform 0.3s ease;
     }
-
-    .report-section:hover {
+    .report-section:hover
+    {
       transform: translateY(-4px);
       box-shadow: 0 0 25px rgba(0,255,255,0.2);
     }
-
-    h2 {
+    h2
+     {
       font-size: 1.6rem;
-      color: #00ffc8;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
+      color: #00ffc8;   margin-bottom: 1rem;
+      display: flex;   align-items: center;
       gap: 0.5rem;
     }
-
-    ul {
+    ul
+     {
       margin-left: 1.5rem;
       margin-top: 0.5rem;
     }
-
-    li {
+    li 
+    {
       margin-bottom: 0.5rem;
       line-height: 1.5;
     }
-
-    p {
+    p 
+    {
       margin-bottom: 0.8rem;
-    }
+    } 
 
-    footer {
+    footer
+     {
       text-align: center;
-      margin-top: 3rem;
-      padding: 2rem;
+      margin-top: 3rem;   padding: 2rem;
       font-size: 0.9rem;
       color: #ccc;
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
+    } 
+    @media (max-width: 768px)
+     {
+      header h1 
+      {
         font-size: 1.3rem;
       }
-      nav a {
+      nav a 
+      {
         font-size: 0.9rem;
         margin-left: 0.6rem;
       }
@@ -123,7 +117,6 @@
       <a href="leaderboard.html">Leaderboard</a>
     </nav>
   </header>
-
   <main>
     <section class="report-section">
       <h2><i class="fas fa-vial"></i> Unit Testing</h2>
@@ -134,7 +127,6 @@
         <li>✅ Score Update</li>
       </ul>
     </section>
-
     <section class="report-section">
       <h2><i class="fas fa-check-circle"></i> User Acceptance Testing</h2>
       <ul>
@@ -143,7 +135,6 @@
         <li>✅ Location is updated and checked</li>
       </ul>
     </section>
-
     <section class="report-section">
       <h2><i class="fas fa-eye"></i> Usability Heuristics</h2>
       <p>Used Nielsen’s heuristics to ensure:</p>
@@ -154,7 +145,6 @@
       </ul>
     </section>
   </main>
-
   <footer>
     © 2025 HuntMasters | QA & Testing Documentation
   </footer>

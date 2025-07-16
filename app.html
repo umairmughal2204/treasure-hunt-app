@@ -8,61 +8,58 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* your existing CSS — unchanged */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
+    * { 
+        box-sizing: border-box;
+         margin: 0; padding: 0; 
+    }
+    html, body 
+    {
       height: 100%;
       font-family: 'Orbitron', sans-serif;
       background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: #fff;
     }
-
     body {
       padding-top: 6rem;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 2rem;
-      padding-bottom: 2rem;
+      justify-content: center;   align-items: flex-start;
+      gap: 2rem;  padding-bottom: 2rem;
       flex-wrap: wrap;
     }
-
-    header {
+    header 
+    {
       position: fixed;
-      top: 0;
-      width: 100%;
-      background: #000;
-      padding: 1rem 2rem;
+      top: 0;  width: 100%;
+      background: #000;   padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
+      align-items: center;  z-index: 1000;
       flex-wrap: wrap;
     }
-
-    header h1 {
+    header h1 
+    {
       font-size: 1.5rem;
       color: #00ffc8;
     }
-
-    header nav {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+    header nav 
+    {
+      display: flex;   align-items: center;
+      gap: 1rem;flex-wrap: wrap;
     }
 
-    header nav a {
+    header nav a 
+    {
       color: #00bcd4;
       text-decoration: none;
       font-weight: bold;
     }
 
-    header nav a:hover {
+    header nav a:hover 
+    {
       color: #ffffff;
     }
-
-    main#game {
+    main#game 
+    {
       background: rgba(0, 0, 0, 0.85);
       padding: 2rem;
       border-radius: 16px;
@@ -71,14 +68,14 @@
       box-shadow: 0 0 20px rgba(0,255,255,0.3);
       animation: fadeIn 1.2s ease-in-out;
     }
-
-    h2 {
+    h2 
+    {
       font-size: 2.2rem;
       margin-bottom: 1.2rem;
       text-align: center;
     }
-
-    select, input[type="text"] {
+    select, input[type="text"] 
+    {
       width: 100%;
       padding: 0.75rem;
       margin: 0.5rem 0 1rem;
@@ -86,8 +83,8 @@
       border-radius: 5px;
       font-size: 1rem;
     }
-
-    button {
+    button 
+    {
       padding: 0.75rem 1.5rem;
       margin: 0.3rem;
       background-color: #00bcd4;
@@ -98,79 +95,82 @@
       cursor: pointer;
       transition: 0.3s;
     }
-
-    button:hover {
+    button:hover 
+    {
       background-color: #0097a7;
       color: #fff;
       transform: scale(1.05);
     }
-
-    #mcq-options, #bool-options {
+    #mcq-options, #bool-options 
+    {
       margin-top: 1rem;
     }
-
-    .answer-button {
+    .answer-button 
+    {
       display: inline-block;
       margin: 0.4rem;
       padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      border: none;
+      font-size: 1rem;   border: none;
       border-radius: 5px;
-      background-color: #4caf50;
-      color: white;
+      background-color: #4caf50;  color: white;
       cursor: pointer;
     }
-
-    .answer-button:hover {
+    .answer-button:hover
+     {
       background-color: #43a047;
     }
-
-    #question-area {
+    #question-area 
+    {
       margin-top: 1rem;
     }
-
-    #button-group {
+    #button-group 
+    {
       margin: 1rem 0;
     }
-
-    aside#sidebar {
+    aside#sidebar 
+    {
       min-width: 200px;
-      max-width: 250px;
-      padding: 1rem;
+      max-width: 250px;   padding: 1rem;
       background-color: rgba(0, 0, 0, 0.7);
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,255,255,0.2);
     }
-
-    #score-display {
+    #score-display 
+    {
       font-size: 1.2rem;
-      color: #00ffc8;
-      background: #00333a;
+      color: #00ffc8;  background: #00333a;
       padding: 0.6rem 1rem;
       border-radius: 8px;
       margin-bottom: 1rem;
       text-align: center;
     }
 
-    #status {
+    #status 
+    {
       margin-top: 1rem;
-      font-weight: bold;
-      text-align: center;
+      font-weight: bold;  text-align: center;
       color: #ffd700;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeIn 
+    {
+      from 
+      { 
+        opacity: 0; transform: translateY(20px); 
     }
-
-    @media (max-width: 900px) {
-      body {
+    to 
+      { opacity: 1; transform: translateY(0); 
+    }
+    }
+    @media (max-width: 900px) 
+    {
+      body 
+      {
         flex-direction: column;
         align-items: center;
       }
-
-      aside#sidebar {
+      aside#sidebar 
+      {
         margin-top: 1rem;
         width: 100%;
         text-align: center;
@@ -179,7 +179,6 @@
   </style>
 </head>
 <body>
-
   <header>
     <h1>🏴‍☠️ Treasure Hunt</h1>
     <nav>
@@ -191,19 +190,17 @@
 
   <main id="game" data-aos="fade-up">
     <h2>🗺️ Treasure Hunt Game</h2>
-
-    <input type="text" id="player-name" placeholder="👤 Enter your name" />
-    
+    <input type="text" id="player-name" 
+    placeholder="👤 Enter your name" />
     <label for="hunt-select">📍 Choose Hunt:</label>
     <select id="hunt-select"></select>
     <button onclick="startHunt()">🚀 Start</button>
-
     <div id="question-area" style="display:none;">
       <p id="question-text"></p>
-      <input type="text" id="answer-input" placeholder="✏️ Type your answer" style="display: none;" />
+      <input type="text" id="answer-input"
+       placeholder="✏️ Type your answer" style="display: none;" />
       <div id="mcq-options" style="display:none;"></div>
       <div id="bool-options" style="display:none;"></div>
-
       <div id="button-group">
         <button onclick="submitAnswer()">✅ Submit Answer</button>
         <button onclick="skipQuestion()">⏭️ Skip</button>
@@ -215,8 +212,6 @@
     <div id="score-display">🎯 Score: <span id="score">0</span></div>
     <p id="status">🕹️ Welcome! Start a hunt.</p>
   </aside>
-
-  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
   <script src="script.js"></script>
