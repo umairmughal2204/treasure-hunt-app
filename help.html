@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>🧪 Testing Report - Treasure Hunt</title>
+  <title>❓ Help - Treasure Hunt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -53,13 +53,13 @@
     main {
       max-width: 850px;
       margin: auto;
-      padding: 7rem 1rem 2rem; /* Reduced top padding */
+      padding: 7rem 1rem 2rem;
       display: flex;
       flex-direction: column;
       gap: 2rem;
     }
 
-    .report-section {
+    .help-section {
       background-color: rgba(0, 0, 0, 0.85);
       border-radius: 12px;
       padding: 2rem;
@@ -67,7 +67,7 @@
       transition: transform 0.3s ease;
     }
 
-    .report-section:hover {
+    .help-section:hover {
       transform: translateY(-4px);
       box-shadow: 0 0 25px rgba(0,255,255,0.2);
     }
@@ -107,6 +107,7 @@
       header h1 {
         font-size: 1.3rem;
       }
+
       nav a {
         font-size: 0.9rem;
         margin-left: 0.6rem;
@@ -116,47 +117,57 @@
 </head>
 <body>
   <header>
-    <h1>🧪 Testing Report</h1>
+    <h1>❓ Help Center</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="app.html">Play</a>
       <a href="leaderboard.html">Leaderboard</a>
+      <a href="test.html">Testing</a>
     </nav>
   </header>
 
   <main>
-    <section class="report-section">
-      <h2><i class="fas fa-vial"></i> Unit Testing</h2>
-      <p>Tested the following functions individually with dummy sessions:</p>
+    <section class="help-section">
+      <h2><i class="fas fa-compass"></i> Getting Started</h2>
+      <p>Welcome to the Treasure Hunt game! To begin playing:</p>
       <ul>
-        <li>✅ Start Hunt (with known UUID)</li>
-        <li>✅ Submit Answer (numeric & boolean)</li>
-        <li>✅ Score Update</li>
+        <li>🧍 Enter your name in the input field.</li>
+        <li>🗺️ Select a treasure hunt from the dropdown.</li>
+        <li>🚀 Click <strong>Start</strong> to begin your adventure.</li>
       </ul>
     </section>
 
-    <section class="report-section">
-      <h2><i class="fas fa-check-circle"></i> User Acceptance Testing</h2>
+    <section class="help-section">
+      <h2><i class="fas fa-question-circle"></i> Answering Questions</h2>
       <ul>
-        <li>✅ App loads on Chrome, Firefox, Safari (iOS and Android)</li>
-        <li>✅ Session starts and progresses through all question types</li>
-        <li>✅ Location is updated and checked</li>
+        <li>❓ Read the question carefully.</li>
+        <li>💬 Enter your answer or choose the correct option.</li>
+        <li>✅ Press <strong>Submit</strong> to send your answer.</li>
+        <li>⏭️ Use <strong>Skip</strong> if you're stuck — but remember, skips may cost points!</li>
       </ul>
     </section>
 
-    <section class="report-section">
-      <h2><i class="fas fa-eye"></i> Usability Heuristics</h2>
-      <p>Used Nielsen’s heuristics to ensure:</p>
+    <section class="help-section">
+      <h2><i class="fas fa-map-marker-alt"></i> Location Access</h2>
+      <p>This game may ask for your location to unlock certain questions. Please ensure:</p>
       <ul>
-        <li>✔️ Simple language (Error feedback)</li>
-        <li>✔️ Mobile responsiveness</li>
-        <li>✔️ Consistency in buttons</li>
+        <li>📍 Location access is enabled in your browser.</li>
+        <li>🔐 You allow permissions when prompted.</li>
+      </ul>
+    </section>
+
+    <section class="help-section">
+      <h2><i class="fas fa-bug"></i> Troubleshooting</h2>
+      <ul>
+        <li>🔄 Refresh the page if a question doesn't load.</li>
+        <li>📡 Check your internet connection.</li>
+        <li>💡 Try using Chrome or Firefox for the best experience.</li>
       </ul>
     </section>
   </main>
 
   <footer>
-    © 2025 HuntMasters | QA & Testing Documentation
+    📘 Need further help? Contact support@huntmasters.com | © 2025 HuntMasters
   </footer>
 </body>
 </html>
