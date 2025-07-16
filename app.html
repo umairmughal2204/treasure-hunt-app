@@ -2,13 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Treasure Hunt</title>
+  <title>Treasure Hunt Game</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    main#game {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+      text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    select, input[type="text"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background-color: #00bcd4;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #0097a7;
+      color: #fff;
+      transform: scale(1.05);
+    }
+    #status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    #score {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #00ffc8;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-  <main id="game">
-    <h2>Treasure Hunt Game</h2>
+  <main id="game" data-aos="fade-up">
+    <h2>🏴‍☠️ Treasure Hunt Game</h2>
     <div>
       <label for="hunt-select">Choose Hunt:</label>
       <select id="hunt-select"></select>
@@ -28,6 +101,8 @@
     </div>
   </main>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
   <script src="script.js"></script>
 </body>
 </html>
