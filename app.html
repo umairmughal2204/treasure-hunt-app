@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Treasure Hunt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game">
+    <h2>Treasure Hunt Game</h2>
+    <div>
+      <label for="hunt-select">Choose Hunt:</label>
+      <select id="hunt-select"></select>
+      <button onclick="startHunt()">Start</button>
+    </div>
+
+    <div id="question-area" style="display:none;">
+      <p id="question-text"></p>
+      <input type="text" id="answer-input" placeholder="Type your answer here" />
+      <button onclick="submitAnswer()">Submit Answer</button>
+      <button onclick="skipQuestion()">Skip</button>
+      <p id="status"></p>
+    </div>
+
+    <div>
+      <p>Score: <span id="score">0</span></p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
