@@ -1,40 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Testing Report</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🧪 Testing Report - Treasure Hunt</title>
+
+  <!-- Fonts and CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      min-height: 100vh;
+      padding-top: 6rem;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #00ffc8;
+    }
+
+    nav a {
+      color: #00bcd4;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+
+    h2 {
+      color: #00ffc8;
+      font-size: 1.4rem;
+      margin-top: 2rem;
+    }
+
+    ul {
+      margin: 1rem 0 1.5rem 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        margin-left: 0.5rem;
+      }
+
+      main {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>🧪 Testing Report – Treasure Hunt App</h1>
 
-  <section>
-    <h2>Unit Testing</h2>
-    <p>Tested the following functions individually with dummy sessions:</p>
-    <ul>
-      <li>Start Hunt (with known UUID)</li>
-      <li>Submit Answer (numeric & boolean)</li>
-      <li>Score Update</li>
-    </ul>
-  </section>
+  <header>
+    <h1>🧪 Testing Report</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="app.html">Play</a>
+      <a href="leaderboard.html">Leaderboard</a>
+    </nav>
+  </header>
 
-  <section>
-    <h2>User Acceptance Testing</h2>
-    <ul>
-      <li>✅ App loads on Chrome, Firefox, Safari (iOS and Android)</li>
-      <li>✅ Session starts and progresses through all question types</li>
-      <li>✅ Location is updated and checked</li>
-    </ul>
-  </section>
+  <main>
+    <section>
+      <h2>🧩 Unit Testing</h2>
+      <p>Tested the following functions individually with dummy sessions:</p>
+      <ul>
+        <li>✅ Start Hunt (with known UUID)</li>
+        <li>✅ Submit Answer (numeric & boolean)</li>
+        <li>✅ Score Update</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Usability Heuristics</h2>
-    <p>Used Nielsen’s heuristics to ensure:</p>
-    <ul>
-      <li>Simple language (Error feedback)</li>
-      <li>Mobile responsiveness</li>
-      <li>Consistency in buttons</li>
-    </ul>
-  </section>
+    <section>
+      <h2>📱 User Acceptance Testing</h2>
+      <ul>
+        <li>✅ App loads on Chrome, Firefox, Safari (iOS and Android)</li>
+        <li>✅ Session starts and progresses through all question types</li>
+        <li>✅ Location is updated and checked</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🧠 Usability Heuristics</h2>
+      <p>Used Nielsen’s heuristics to ensure:</p>
+      <ul>
+        <li>✔️ Simple language (Error feedback)</li>
+        <li>✔️ Mobile responsiveness</li>
+        <li>✔️ Consistency in buttons</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 HuntMasters | Testing insights compiled for QA Excellence
+  </footer>
+
 </body>
 </html>

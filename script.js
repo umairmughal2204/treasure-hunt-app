@@ -40,11 +40,26 @@ function startHunt() {
       }
 
       sessionId = data.session;
+      localStorage.setItem("sessionId", sessionId);
+      localStorage.setItem("playerName", playerName);
+      localStorage.setItem("huntId", huntId);
+
       document.getElementById('question-area').style.display = 'block';
       loadQuestion();
       updateScore();
       setInterval(updateLocation, 120000);
     });
+}
+
+function resumePreviousSession() {
+  const savedSession = localStorage.getItem("sessionId");
+  if (savedSession) {
+    sessionId = savedSession;
+    document.getElementById('question-area').style.display = 'block';
+    loadQuestion();
+    updateScore();
+    setInterval(updateLocation, 120000);
+  }
 }
 
 function loadQuestion() {
@@ -63,14 +78,14 @@ function loadQuestion() {
       mcqOptions.innerHTML = '';
       boolOptions.innerHTML = '';
       answerInput.value = '';
-    
+
       if (data.status === 'OK' && !data.completed) {
         questionText.innerHTML = data.questionText;
         const type = data.questionType;
 
         if (type === "MCQ") {
           mcqOptions.style.display = 'block';
-          const options = data.choices || ['A', 'B', 'C', 'D']; // fallback
+          const options = data.choices || ['A', 'B', 'C', 'D'];
           options.forEach(choice => {
             const btn = document.createElement('button');
             btn.className = 'answer-button';
@@ -94,7 +109,6 @@ function loadQuestion() {
             boolOptions.appendChild(btn);
           });
         } else {
-          // For TEXT or NUMERIC or unknown types
           answerInput.style.display = 'block';
         }
       } else {
@@ -127,7 +141,6 @@ function submitAnswer(passedAnswer = null) {
   });
 }
 
-
 function skipQuestion() {
   fetch(`https://codecyprus.org/th/api/skip?session=${sessionId}`)
     .then(res => res.json())
@@ -158,5 +171,13 @@ function updateLocation() {
   });
 }
 
+function scanQRCode() {
+  alert("QR scanning feature will be implemented using html5-qrcode.");
+  // Future: integrate html5-qrcode or QR scanning library and submit result like:
+  // document.getElementById('answer-input').value = scannedCode;
+  // submitAnswer();
+}
+
 // Load hunts on page load
 fetchHunts();
+resumePreviousSession();

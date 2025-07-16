@@ -8,6 +8,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
+    /* your existing CSS — unchanged */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
       height: 100%;
@@ -132,7 +133,6 @@
       margin: 1rem 0;
     }
 
-    /* Sidebar for score and status */
     aside#sidebar {
       min-width: 200px;
       max-width: 250px;
@@ -183,37 +183,37 @@
   <header>
     <h1>🏴‍☠️ Treasure Hunt</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="test.html">Testing</a>
+      <a href="index.html">🏠 Home</a>
+      <a href="leaderboard.html">🏆 Leaderboard</a>
+      <a href="test.html">🧪 Testing</a>
     </nav>
   </header>
 
   <main id="game" data-aos="fade-up">
-    <h2>Treasure Hunt Game</h2>
+    <h2>🗺️ Treasure Hunt Game</h2>
 
-    <input type="text" id="player-name" placeholder="Enter your name" />
+    <input type="text" id="player-name" placeholder="👤 Enter your name" />
     
-    <label for="hunt-select">Choose Hunt:</label>
+    <label for="hunt-select">📍 Choose Hunt:</label>
     <select id="hunt-select"></select>
-    <button onclick="startHunt()">Start</button>
+    <button onclick="startHunt()">🚀 Start</button>
 
     <div id="question-area" style="display:none;">
       <p id="question-text"></p>
-      <input type="text" id="answer-input" placeholder="Type your answer" style="display: none;" />
+      <input type="text" id="answer-input" placeholder="✏️ Type your answer" style="display: none;" />
       <div id="mcq-options" style="display:none;"></div>
       <div id="bool-options" style="display:none;"></div>
 
       <div id="button-group">
-        <button onclick="submitAnswer()">Submit Answer</button>
-        <button onclick="skipQuestion()">Skip</button>
+        <button onclick="submitAnswer()">✅ Submit Answer</button>
+        <button onclick="skipQuestion()">⏭️ Skip</button>
       </div>
     </div>
   </main>
 
   <aside id="sidebar">
     <div id="score-display">🎯 Score: <span id="score">0</span></div>
-    <p id="status">Welcome! Start a hunt.</p>
+    <p id="status">🕹️ Welcome! Start a hunt.</p>
   </aside>
 
   <!-- Scripts -->

@@ -1,155 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Treasure Hunt - Welcome</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treasure Hunt</title>
 
-  <!-- Fonts and CSS -->
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * 
+        {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html,
+        body 
+        {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #000428, #004e92);
+            color: white;
+            overflow-x: hidden;
+        }
+        body 
+        {
+            display: flex;
+            flex-direction: column;
+        }
+        header 
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000;  padding: 1rem 2rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+        header h1 {
+            font-size: 1.8rem;
+            font-family: 'Orbitron', sans-serif;
+            color: #00ffc8;
+        }
+        .nav-buttons a 
+        {
+            background-color: #00bcd4;
+            color: #000;
+            padding: 0.6rem 1rem;    margin-left: 0.5rem;  text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;  transition: 0.3s ease;
+        }
+        .nav-buttons a:hover 
+        {
+            background-color: #0097a7;
+            color: white;
+            transform: scale(1.05);
+        }
+        .hero-section 
+        {
+            flex: 1;
+            text-align: center;
+            padding: 5rem 1rem;
+            background: url('images/treasure-bg.jpg') center center/cover no-repeat;
+            min-height: 100vh;  animation: fadeIn 1.5s ease-in-out;
+            display: flex;  flex-direction: column;
+            justify-content: center;
+        }
+        .hero-section h2 
+        {
+            font-size: 2.8rem;  margin-bottom: 2rem;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        .hero-section p 
+        {
+            font-size: 1.2rem;
+            color: #e0f7fa;
+        }
+        footer {
+            background: #000;
+            color: #aaa;  padding: 1.5rem 1rem;
+            font-size: 0.9rem;  text-align: center;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.6);
+        }
+        .social-footer 
+        {
+            margin-bottom: 1rem;
+        }
 
-  <!-- Internal Styles -->
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        .social-footer a 
+        {
+            color: #00bcd4;
+            font-size: 1.6rem;  margin: 0 0.7rem;   text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social-footer a:hover 
+        {
+            color: white;
+        }
+        @keyframes fadeIn 
+        {
+            from 
+            {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to 
+            {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media(max-width: 768px) {
+            .hero-section h2 {
+                font-size: 2rem;
+            }
 
-    html, body {
-      height: 100%;
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(to right, #000428, #004e92);
-      color: white;
-      overflow-x: hidden;
-    }
+            header h1 {
+                font-size: 1.4rem;
+            }
 
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #000;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-      z-index: 1000;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-      color: white;
-    }
-
-    .nav-buttons a {
-      background-color: #00bcd4;
-      color: #000;
-      padding: 0.6rem 1rem;
-      margin-left: 0.5rem;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: 0.3s ease;
-    }
-
-    .nav-buttons a:hover {
-      background-color: #0097a7;
-      color: white;
-      transform: scale(1.05);
-    }
-
-    .hero-section {
-      flex: 1;
-      text-align: center;
-      padding: 5rem 1rem;
-      background: url('images/treasure-bg.jpg') center center/cover no-repeat;
-      min-height: 100vh;
-      animation: fadeIn 2s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-section h2 {
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-    }
-
-    footer {
-      background: #000;
-      color: #aaa;
-      padding: 1.5rem 1rem;
-      font-size: 0.9rem;
-      text-align: center;
-      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.6);
-    }
-
-    .social-footer {
-      margin-bottom: 1rem;
-    }
-
-    .social-footer a {
-      color: #00bcd4;
-      font-size: 1.8rem;
-      margin: 0 1rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .social-footer a:hover {
-      color: white;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media(max-width: 768px) {
-      .hero-section h2 {
-        font-size: 2.2rem;
-      }
-      header h1 {
-        font-size: 1.3rem;
-      }
-      .nav-buttons a {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.9rem;
-      }
-    }
-  </style>
+            .nav-buttons a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <h1>🏴‍☠️ Treasure Hunt</h1>
-    <div class="nav-buttons">
-      <a href="app.html">Play</a>
-      <a href="#">Help</a>
-      <a href="test.html">Testing</a>
+    <header>
+        <h1>🏴‍☠️ Treasure Hunt</h1>
+        <div class="nav-buttons">
+            <a href="app.html">▶️ Play</a>
+            <a href="#">❓ Help</a>
+            <a href="test.html">🧪 Testing</a>
+        </div>
+    </header>
+    <div class="hero-section" data-aos="fade-up">
+        <h2>🗺️ Ahoy! WELCOME to <br>The Treasure Hunt!!!!!!!</h2>
+        <p>Embark on an exciting quest to uncover hidden treasures. Let the hunt begin!</p>
     </div>
-  </header>
-
-  <div class="hero-section" data-aos="fade-up">
-    <h2>Ahoy!! Welcome to <br>The Treasure Hunt!!</h2>
-  </div>
-
-  <footer>
-    <div class="social-footer">
-      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-    </div>
-    <p>© 2025 HuntMasters | All content is protected and reserved</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+    <footer>
+        <div class="social-footer">
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 HuntMasters | All content is protected and reserved</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
 </body>
 </html>
