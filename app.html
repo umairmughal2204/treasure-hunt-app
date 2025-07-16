@@ -8,11 +8,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
       height: 100%;
       font-family: 'Orbitron', sans-serif;
@@ -21,7 +17,6 @@
     }
     body {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 2rem;
@@ -30,16 +25,13 @@
       background: rgba(0, 0, 0, 0.8);
       padding: 2rem;
       border-radius: 12px;
-      max-width: 500px;
+      max-width: 600px;
       width: 100%;
       box-shadow: 0 0 20px rgba(0,255,255,0.3);
       text-align: center;
       animation: fadeIn 1.2s ease-in-out;
     }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
+    h2 { font-size: 2rem; margin-bottom: 1.5rem; }
     select, input[type="text"] {
       width: 100%;
       padding: 0.75rem;
@@ -73,6 +65,23 @@
       font-size: 1.2rem;
       color: #00ffc8;
     }
+    #mcq-options, #bool-options {
+      margin-top: 1rem;
+    }
+    .answer-button {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+    .answer-button:hover {
+      background-color: #43a047;
+    }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -82,23 +91,35 @@
 <body>
   <main id="game" data-aos="fade-up">
     <h2>🏴‍☠️ Treasure Hunt Game</h2>
-    <div>
-      <label for="hunt-select">Choose Hunt:</label>
-      <select id="hunt-select"></select>
-      <button onclick="startHunt()">Start</button>
-    </div>
 
+    <!-- Player name input -->
+    <input type="text" id="player-name" placeholder="Enter your name"  />
+
+    <!-- Hunt selection -->
+    <label for="hunt-select">Choose Hunt:</label>
+    <select id="hunt-select"></select>
+    <button onclick="startHunt()">Start</button>
+
+    <!-- Question and Answer area -->
     <div id="question-area" style="display:none;">
       <p id="question-text"></p>
-      <input type="text" id="answer-input" placeholder="Type your answer here" />
+
+      <!-- Text input field -->
+      <input type="text" id="answer-input" placeholder="Type your answer" style="display: none;"/>
+
+      <!-- Buttons for multiple choice -->
+      <div id="mcq-options" style="display:none;"></div>
+
+      <!-- Buttons for true/false -->
+      <div id="bool-options" style="display:none;"></div>
+
+      <br/>
       <button onclick="submitAnswer()">Submit Answer</button>
       <button onclick="skipQuestion()">Skip</button>
       <p id="status"></p>
     </div>
 
-    <div>
-      <p>Score: <span id="score">0</span></p>
-    </div>
+    <p>Score: <span id="score">0</span></p>
   </main>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

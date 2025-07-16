@@ -6,24 +6,44 @@ function fetchHunts() {
     .then(res => res.json())
     .then(data => {
       const select = document.getElementById('hunt-select');
+      select.innerHTML = ''; // clear previous options
+
       data.treasureHunts.forEach(hunt => {
         const opt = document.createElement('option');
         opt.value = hunt.uuid;
-        opt.text = hunt.name;
+        opt.textContent = hunt.name;
         select.appendChild(opt);
       });
     });
 }
 
+function generateRandomName() {
+  return 'Player' + Math.floor(Math.random() * 1000000);
+}
+
 function startHunt() {
   const huntId = document.getElementById('hunt-select').value;
-  fetch(`https://codecyprus.org/th/api/start?player=DemoPlayer&app=myapp&treasureHuntId=${huntId}`)
+  const playerNameInput = document.getElementById('player-name');
+  let playerName = playerNameInput?.value.trim() || generateRandomName();
+
+  if (!huntId) {
+    alert("Please select a treasure hunt first.");
+    return;
+  }
+
+  fetch(`https://codecyprus.org/th/api/start?player=${encodeURIComponent(playerName)}&app=myapp&treasure-hunt-id=${huntId}`)
     .then(res => res.json())
     .then(data => {
+      if (data.status === "ERROR") {
+        alert("Failed to start session: " + data.errorMessages.join(", "));
+        return;
+      }
+
       sessionId = data.session;
       document.getElementById('question-area').style.display = 'block';
       loadQuestion();
-      setInterval(updateLocation, 120000); // every 2 minutes
+      updateScore();
+      setInterval(updateLocation, 120000);
     });
 }
 
@@ -31,37 +51,88 @@ function loadQuestion() {
   fetch(`https://codecyprus.org/th/api/question?session=${sessionId}`)
     .then(res => res.json())
     .then(data => {
-      if (data.status === 'OK') {
-        currentQuestion = data.question;
-        document.getElementById('question-text').innerText = currentQuestion.text;
+      const questionText = document.getElementById('question-text');
+      const answerInput = document.getElementById('answer-input');
+      const mcqOptions = document.getElementById('mcq-options');
+      const boolOptions = document.getElementById('bool-options');
+
+      // Clear old UI
+      answerInput.style.display = 'none';
+      mcqOptions.style.display = 'none';
+      boolOptions.style.display = 'none';
+      mcqOptions.innerHTML = '';
+      boolOptions.innerHTML = '';
+      answerInput.value = '';
+    
+      if (data.status === 'OK' && !data.completed) {
+        questionText.innerHTML = data.questionText;
+        const type = data.questionType;
+
+        if (type === "MCQ") {
+          mcqOptions.style.display = 'block';
+          const options = data.choices || ['A', 'B', 'C', 'D']; // fallback
+          options.forEach(choice => {
+            const btn = document.createElement('button');
+            btn.className = 'answer-button';
+            btn.textContent = choice;
+            btn.onclick = () => {
+              document.getElementById('answer-input').value = choice;
+              submitAnswer();
+            };
+            mcqOptions.appendChild(btn);
+          });
+        } else if (type === "BOOLEAN") {
+          boolOptions.style.display = 'block';
+          ["True", "False"].forEach(choice => {
+            const btn = document.createElement('button');
+            btn.className = 'answer-button';
+            btn.textContent = choice;
+            btn.onclick = () => {
+              document.getElementById('answer-input').value = choice;
+              submitAnswer();
+            };
+            boolOptions.appendChild(btn);
+          });
+        } else {
+          // For TEXT or NUMERIC or unknown types
+          answerInput.style.display = 'block';
+        }
       } else {
-        document.getElementById('status').innerText = 'Game Over!';
+        questionText.innerText = "🎉 Game Over!";
+        document.getElementById('status').innerText = "No more questions.";
       }
     });
 }
 
-function submitAnswer() {
-  const answer = document.getElementById('answer-input').value;
+function submitAnswer(passedAnswer = null) {
+  const answer = passedAnswer || document.getElementById('answer-input').value.trim();
+  if (!answer) {
+    document.getElementById('status').innerText = "Please enter an answer.";
+    return;
+  }
 
   navigator.geolocation.getCurrentPosition(pos => {
     const lat = pos.coords.latitude;
     const lng = pos.coords.longitude;
 
-    fetch(`https://codecyprus.org/th/api/answer?session=${sessionId}&answer=${answer}&latitude=${lat}&longitude=${lng}`)
+    fetch(`https://codecyprus.org/th/api/answer?session=${sessionId}&answer=${encodeURIComponent(answer)}&latitude=${lat}&longitude=${lng}`)
       .then(res => res.json())
       .then(data => {
-        document.getElementById('status').innerText = data.message;
+        document.getElementById('status').innerText = data.message || "Answer submitted.";
         updateScore();
         loadQuestion();
       });
+  }, () => {
+    document.getElementById('status').innerText = "Location required to submit the answer.";
   });
 }
+
 
 function skipQuestion() {
   fetch(`https://codecyprus.org/th/api/skip?session=${sessionId}`)
     .then(res => res.json())
     .then(data => {
-      document.getElementById('status').innerText = data.message;
+      document.getElementById('status').innerText = data.message || "Question skipped.";
       loadQuestion();
     });
 }
@@ -70,12 +141,15 @@ function updateScore() {
   fetch(`https://codecyprus.org/th/api/score?session=${sessionId}`)
     .then(res => res.json())
     .then(data => {
-      document.getElementById('score').innerText = data.score;
+      if (data.status === 'OK') {
+        document.getElementById('score').innerText = data.score;
+      }
     });
 }
 
 function updateLocation() {
   if (!sessionId) return;
+
   navigator.geolocation.getCurrentPosition(pos => {
     const lat = pos.coords.latitude;
     const lng = pos.coords.longitude;
@@ -84,4 +158,5 @@ function updateLocation() {
   });
 }
 
+// Load hunts on page load
 fetchHunts();
